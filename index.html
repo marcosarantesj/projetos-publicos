@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="sorteio.js"></script>
+    <title>Sorteio</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sorteio de ítens</h2>
+        <label for="item" class="control-label">Nome</label>
+        <input type="text" name="item" id="item" class="form-control">
+        <p></p>
+        <button class="btn btn-primary" onclick="addRow('tabela')">Adicionar nome</button>
+        <button class="btn btn-success" onclick="getItens()">Sortear nomes</button>
+        <button class="btn btn-info" onclick="getUmNome()">Sortear 1 nome</button>
+        <button class="btn btn-danger" onclick="limparLista()">Remover nomes sorteados</button>
+        <p></p>
+        <table id="tabela" class="table">
+            <thead class="bg-primary bg-gradient">
+                <tr>
+                    <th>
+                        Nome
+                    </th>
+                    <th>Remover nome</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 id="titulo">Nomes sorteados</h3>
+            </div>
+            <ol id="sorteio" class="list-group list-group-flush">
+
+            </ol>
+        </div>
+    </div>
+</body>
+
+</html>
