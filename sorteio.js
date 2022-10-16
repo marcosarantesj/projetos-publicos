@@ -1,3 +1,4 @@
+/* Adiciona uma linha na tabela */
 function addRow(idTabela) {
 
     var item = document.getElementById('item').value.trim();
@@ -23,7 +24,7 @@ function addRow(idTabela) {
 
 }
 
-// funcao remove uma linha da tabela
+/* remove uma linha da tabela */
 function removeLinha(linha) {
     var i = linha.parentNode.parentNode.rowIndex;
     document.getElementById('tabela').deleteRow(i);
@@ -45,35 +46,31 @@ function getItens() {
     } else {
         nomes = [];
     }
-
-    //Sorteia e mostra números inteiros
-    //var indice = getRndInteger(1, nomes.length);
+       
     var item = [];
 
     //var indice = getRandomInteger(0, nomes.length - 1);
     //Mostra apenas os números do intervalo do índice do array        
-    var indice;
-    for (var i2 = 0; i2 < nomes.length; i2++) {
-        indice = Math.floor(Math.random() * nomes.length);
-        item.push(nomes[indice]);
-        item = unico(item);
-    }
+    
+    // for (let i2 = 0; i2 < nomes.length; i2++) {
+    //     indice = Math.floor(Math.random() * nomes.length);
+    //     item.push(nomes[indice]);
+    //     item = unico(item);
+    // }
 
     //Verifica se possui ítens duplicados no array e remove
-    //item = unico(item);
-    if (item.length < nomes.length) {
+    //Corrigindo bug que nem sempre mostra o sorteio de todos os ítens da lista 
+    var indice;   
+    while (item.length < nomes.length) {
         for (let i2 = 0; i2 < nomes.length; i2++) {
             indice = Math.floor(Math.random() * nomes.length);
             item.push(nomes[indice]);
             item = unico(item);
         }
-    }
+    }    
 
     getNomeSorteado("Nomes sorteados");
-
-    //var item = nomes[Math.floor(Math.random() * nomes.length-1)];
-    //var item = nomes[getRandomInteger(0, nomes.length-1)];
-    //let funciona apenas no bloco
+        
     for (let x = 0; x < item.length; x++) {
         let lista = document.getElementById("sorteio").innerHTML;
         lista = lista + "<h4><li class=\"list-group-item\">" + item[x] + "</li></h4>";
@@ -87,10 +84,7 @@ function getRandomInteger(min, max) {
 }
 
 function limparLista() {
-    var lista = document.getElementById("sorteio");
-    //Pegar texto (lista.innerText)
-    //Pega toda a linha com a tag
-    //lista.innerHTML
+    let lista = document.getElementById("sorteio");  
     lista.innerText = "";
 }
 
@@ -142,7 +136,7 @@ function getUmNome() {
 
 }
 
-//Altera o nome na tag
+
 function getNomeSorteado(nome) {
     //Altera o nome na tag
     var titulo = document.getElementById("titulo").innerHTML;
